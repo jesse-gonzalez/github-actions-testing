@@ -55,7 +55,7 @@ jobs:
       id: github_context_step
       run: echo '${{ toJSON(github) }}'
     - name: Dump job context
-      run: echo '${{ toJSON(job) }}'
+      run: echo '${{ toJSON(job.greet) }}'
     - name: Dump environment context
       run: echo '${{ toJSON(env) }}'
     - name: Dump steps context
