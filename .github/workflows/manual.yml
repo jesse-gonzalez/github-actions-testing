@@ -27,17 +27,16 @@ on:
         default: 'kalm-main-16-4'
         # Input has to be provided for the workflow to run
         required: true
-      environment:
-        description: 'Environment to pull secrets from...'
+      github_environment:
+        description: 'Github environment to pull secrets from...'
+        default: 'kalm-main-cicd'
         type: environment
         required: true
 
 env:
   ### Target karbon production environment / hpoc id
-  DEFAULT_ENVIRONMENT: 'kalm-main-16-4'
-  DEFAULT_ENVIRONMENT_TEST: $DEFAULT_ENVIRONMENT
-  ENVIRONMENT_NAME: ${{ github.event.inputs.deploy_environment || $DEFAULT_ENVIRONMENT }}
-  GH_RUNNER_ENVIRONMENT: ${{ github.event.inputs.environment || 'kalm-main-cicd' }}
+  ENVIRONMENT_NAME: ${{ github.event.inputs.deploy_environment || 'kalm-main-16-4' }}
+  GH_ENVIRONMENT: ${{ github.event.inputs.github_environment || 'kalm-main-cicd' }}
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -46,8 +45,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # This workflow contains a single job called "greet"
-    environment: $GH_RUNNER_ENVIRONMENT
-    
+    environment: $GH_ENVIRONMENT
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -62,5 +60,5 @@ jobs:
     - name: Echo Environment
       run: echo $ENVIRONMENT_NAME
     - name: Echo Github Runner Self-Hosted Environment
-      run: echo $GH_RUNNER_ENVIRONMENT
+      run: echo $GH_ENVIRONMENT
     
