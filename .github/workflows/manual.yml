@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     # This workflow contains a single job called "greet"
     environment:
-      name: ${{ github.env.ENVIRONMENT_NAME }}
+      name: '${{ github.env.ENVIRONMENT_NAME }}'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -54,18 +54,13 @@ jobs:
     - name: Dump GitHub context
       id: github_context_step
       run: echo '${{ toJSON(github) }}'
-    - name: Dump environment context
-      run: echo '${{ toJSON(env) }}'
     - name: Dump job context
       run: echo '${{ toJSON(job) }}'
     - name: Dump step context
       run: echo '${{ toJSON(step) }}'
-    - name: Dump steps context
     - name: Echo Environment
       run: echo $ENVIRONMENT_NAME
     - name: Echo Github Runner Self-Hosted Environment
       run: echo $GH_ENVIRONMENT
-    - name: Echo Github Environment
-      run: echo ${{ steps.environment.outputs }}
     
     
