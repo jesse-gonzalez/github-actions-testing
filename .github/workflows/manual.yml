@@ -42,5 +42,5 @@ jobs:
     - name: Echo Environment
       run: echo '${{ github.event.inputs.environment }}'
     - name: Echo Environment Specific Secret
-      run: echo '$COMMON_SECRET'
+      run: echo '${{ secrets.COMMON_SECRET }}'
     
