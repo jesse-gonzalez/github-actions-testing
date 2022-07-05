@@ -59,7 +59,7 @@ jobs:
     - name: Dump environment context
       run: echo '${{ toJSON(env) }}'
     - name: Dump steps context
-      run: echo '${{ toJSON(steps) }}'
+      run: echo '${{ toJSON(steps.outputs) }}'
     - name: Echo Environment
       run: echo $ENVIRONMENT_NAME
     - name: Echo Github Runner Self-Hosted Environment
