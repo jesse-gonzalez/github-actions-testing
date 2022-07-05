@@ -31,25 +31,19 @@ on:
         default: 'kalm-main-cicd'
         type: environment
         required: true
-      runners_label:
-        description: 'Label to Target Github Runners'
-        default: 'kalm-main-20-3'
-        type: string
-        required: true
 
 
 env:
   ### Target karbon production environment / hpoc id
   ENVIRONMENT_NAME: ${{ github.event.inputs.deploy_environment || 'kalm-main-16-4' }}
   GH_ENVIRONMENT: ${{ github.event.inputs.github_environment || 'kalm-main-cicd' }}
-  RUNNERS_LABEL: ${{ github.event.inputs.runners_label || 'ubuntu-latest' }}
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
     # The type of runner that the job will run on
-    runs-on: $RUNNERS_LABEL
+    runs-on: ubuntu-latest
     # This workflow contains a single job called "greet"
     environment: $GH_ENVIRONMENT
 
