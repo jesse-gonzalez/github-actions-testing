@@ -10,21 +10,13 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      environment_name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'what is environment name'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'kalm-main-8-2'
         # Input has to be provided for the workflow to run
         required: true
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true      
-      tags:
-        description: 'Test scenario tags'
-        required: true 
-        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,7 +25,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
-    environment: '${{ github.event.inputs.environment }}'
+    environment: '${{ github.event.inputs.environment_name }}'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -45,8 +37,10 @@ jobs:
       run: echo '${{ toJSON(github) }}'
     - name: Dump job context
       run: echo '${{ toJSON(job) }}'
-    - name: Echo Stuff
-      run: echo '${{ github.event.inputs.tags }}'
-    - name: Echo Stuff
+    - name: Echo Environment Name
+      run: echo '${{ github.event.inputs.environment_name }}'
+    - name: Echo Environment
       run: echo '${{ github.event.inputs.environment }}'
+    - name: Echo Environment Specific Secret
+      run: echo '$COMMON_SECRET'
     
