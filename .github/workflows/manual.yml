@@ -56,6 +56,8 @@ jobs:
       run: echo '${{ toJSON(github) }}'
     - name: Dump job context
       run: echo '${{ toJSON(job) }}'
+    - name: Dump steps context
+      run: echo '${{ toJSON(steps) }}'
     - name: Echo Environment
       run: echo $ENVIRONMENT_NAME
     - name: Echo Github Runner Self-Hosted Environment
