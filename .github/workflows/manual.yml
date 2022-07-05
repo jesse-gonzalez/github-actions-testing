@@ -33,7 +33,7 @@ on:
       github_runner:
         description: 'Runner runner label'
         default: 'ubuntu-latest'
-        type: environment
+        type: string
         required: true
 
 env:
