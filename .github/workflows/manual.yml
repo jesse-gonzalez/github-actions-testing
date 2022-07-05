@@ -30,10 +30,8 @@ on:
         required: true
 
 env:
-  DEFAULT_ENVIRONMENT: 'kalm-main-16-4'
   ### Target karbon production environment / hpoc id
-  ENVIRONMENT_NAME: '${{ github.event.inputs.target_environment || $DEFAULT_ENVIRONMENT }}'
-
+  ENVIRONMENT_NAME: '${{ github.event.inputs.target_environment || 'kalm-main-16-4' }}'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -55,7 +53,7 @@ jobs:
     - name: Echo Environment Name
       run: echo '${{ github.event.inputs.target_environment }}'
     - name: Echo Environment
-      run: echo $ENVIRONMENT_NAME
+      run: echo '$ENVIRONMENT_NAME'
     - name: Echo Environment Specific Secret
       run: echo '${{ secrets.COMMON_SECRET }}'
     
