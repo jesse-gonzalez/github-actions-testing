@@ -58,8 +58,8 @@ jobs:
       run: echo '${{ toJSON(env) }}'
     - name: Dump job context
       run: echo '${{ toJSON(job) }}'
-    - name: Dump steps context
-      run: echo '${{ toJSON(steps) }}'
+    - name: Dump step context
+      run: echo '${{ toJSON(step) }}'
     - name: Dump steps context
     - name: Echo Environment
       run: echo $ENVIRONMENT_NAME
