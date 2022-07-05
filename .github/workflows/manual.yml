@@ -42,7 +42,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # This workflow contains a single job called "greet"
-    environment: kalm-main-cicd
+    environment: $GH_RUNNER_ENVIRONMENT
     
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -55,4 +55,6 @@ jobs:
       run: echo '${{ toJSON(job) }}'
     - name: Echo Environment
       run: echo $ENVIRONMENT_NAME
+    - name: Echo Github Runner Self-Hosted Environment
+      run: echo $GH_RUNNER_ENVIRONMENT
     
