@@ -34,7 +34,7 @@ on:
 
 env:
   ### Target karbon production environment / hpoc id
-  DEFAULT_ENVIRONMENT:  ${{ github.event.inputs.deploy_environment[default] }}
+  DEFAULT_ENVIRONMENT: 'test'
   DEFAULT_ENVIRONMENT_TEST: $DEFAULT_ENVIRONMENT
   ENVIRONMENT_NAME: ${{ github.event.inputs.deploy_environment || 'kalm-main-16-4' }}
   GH_RUNNER_ENVIRONMENT: ${{ github.event.inputs.environment || 'kalm-main-cicd' }}
