@@ -48,5 +48,4 @@ jobs:
       run: echo '$ENVIRONMENT_NAME'
     - name: Echo Environment Specific Secret
       run: echo '${{ secrets.COMMON_SECRET }}'
-      github.jobs.greet.environment
     
