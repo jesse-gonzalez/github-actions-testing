@@ -45,7 +45,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # This workflow contains a single job called "greet"
-    environment: '${{ env.$ENVIRONMENT_NAME }}'
+    environment: '${{ github.env.$ENVIRONMENT_NAME }}'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
