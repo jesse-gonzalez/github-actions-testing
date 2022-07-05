@@ -30,6 +30,10 @@ on:
         required: true
 
 
+env:
+  ### Target karbon production environment / hpoc id
+  ENVIRONMENT_NAME: ${{ github.event.inputs.target_environment || 'kalm-main-16-4' }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
@@ -38,10 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     
     environment: kalm-main-cicd
-
-    env:
-      ### Target karbon production environment / hpoc id
-      ENVIRONMENT_NAME: ${{ github.event.inputs.target_environment || 'kalm-main-16-4' }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
