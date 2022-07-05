@@ -60,7 +60,7 @@ jobs:
       run: echo $ENVIRONMENT_NAME
     - name: Echo Github Runner Self-Hosted Environment
       run: echo $GH_ENVIRONMENT
-    - name: Echo Github Runner Self-Hosted Environment
-      run: echo $GH_ENVIRONMENT
+    - name: Echo Github Environment
+      run: echo ${{steps.environment.outputs.environment_name}}
     
     
