@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     # This workflow contains a single job called "greet"
     environment:
-      name: ${{ github.event.inputs.deploy_environment || 'kalm-main-cicd' }}
+      name: ${{ github.event.inputs.github_environment || 'kalm-main-cicd' }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
