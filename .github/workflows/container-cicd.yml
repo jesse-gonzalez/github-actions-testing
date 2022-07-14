@@ -3,8 +3,10 @@ on:
   push:
     branches:
       - 'main'
-    # paths:
-    #   - '.devcontainer/**'
+    paths:
+      - '.devcontainer/**'
+      - 'scripts/**'
+      - 'Dockerfile'
 permissions:
   contents: read
   packages: write
