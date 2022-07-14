@@ -60,7 +60,7 @@ RUN chmod +x *.sh \
     && ./install_rancher_cli.sh \
     && calm completion install zsh
 
-## preload zsh plugins
+### preload zsh plugins
 SHELL ["/bin/zsh", "-c"]
 RUN source /root/.zshrc
 RUN zsh -i -c -- 'zinit module build; @zinit-scheduler burst || true '
