@@ -4,8 +4,9 @@ on:
     branches:
       - 'main'
     paths:
-      - '.devcontainer/**'
-      - 'scripts/**'
+      - '.github/workflows/container-cicd.yml'
+      - '.devcontainer/**/*'
+      - 'scripts/**/*'
       - 'Dockerfile'
 permissions:
   contents: read
