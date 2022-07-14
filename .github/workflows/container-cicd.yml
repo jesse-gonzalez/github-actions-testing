@@ -6,7 +6,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'change-me/.devcontainer/**/*'
+      - '.devcontainer/**/*'
 permissions:
   contents: read
   packages: write
