@@ -24,9 +24,10 @@ jobs:
           # Update this based on your image name and the path of the .devcontainer folder in your repository
           IMAGE_NAME="calm-dsl-utils"
           IMAGE_REPOSITORY="$(echo "ghcr.io/${{ github.repository_owner }}/${IMAGE_NAME}" | tr '[:upper:]' '[:lower:]')"
-          GIT_COMMIT_ID="$(git rev-parse --short HEAD)"
-          GIT_TAG="$(git rev-list --tags --max-count=1 | xargs -I {} git describe --tags {})"
-
+          GIT_COMMIT_ID="$(/usr/bin/git rev-parse --short HEAD)"
+          GIT_TAG="$(/usr/bin/git rev-list --tags --max-count=1 | xargs -I {} /usr/bin/git describe --tags {})"
+          echo $GIT_COMMIT_ID
+          echo $GIT_TAG
           # [Optional] Enable buildkit, set output to plain text for logging
           export DOCKER_BUILDKIT=1
           export BUILDKIT_PROGRESS=plain
